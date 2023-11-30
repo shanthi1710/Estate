@@ -29,8 +29,9 @@ export const signin =async(req,res,next)=>{
         if(!validPassword){
             return next(errorHandler(401, 'Invalid password!'));
         }
-        const token=Jwt.sign({id:validUser._id},process.env.JWT_SECRET)
-        const {password: pass,...rest}=validUser._doc;
+        const token=Jwt.sign({id:validUser._id},process.env.JWT_SECRET) //create JWT token
+
+        const {password: pass,...rest}=validUser._doc; // hiding the password
         res
             .cookie('access_token',token,{httpOnly:true})
             .status(200)
