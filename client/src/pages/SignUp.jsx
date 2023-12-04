@@ -16,6 +16,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
+      //fetching data from api
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
@@ -23,6 +24,7 @@ export default function SignUp() {
         },
         body: JSON.stringify(formData),
       });
+      //----------------------------------
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
