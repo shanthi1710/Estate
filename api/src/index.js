@@ -1,15 +1,18 @@
 import express from "express";
 import connectDB from "./db/index.js"
 import dotenv from 'dotenv';
+import cookieParser from "cookie-parser";
 
 const app =express();
 app.use(express.json());
-//import userRouter from './routes/user.route.js'
+app.use(cookieParser());
+
+import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js';
+//import { verifyToken } from "./utils/verifyUser.js";
 
 dotenv.config();
  
-
 const port=process.env.PORT || 8000
 connectDB()
 .then(()=>{
@@ -21,7 +24,7 @@ connectDB()
     console.log("MONGO DB connection failed !!",err);
 })
 
-//app.use("/api/user",userRouter);
+app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 
 //error respons 
