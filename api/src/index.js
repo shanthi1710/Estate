@@ -9,6 +9,7 @@ app.use(cookieParser());
 
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js';
+import listingRouter from './routes/listing.route.js';
 //import { verifyToken } from "./utils/verifyUser.js";
 
 dotenv.config();
@@ -26,7 +27,7 @@ connectDB()
 
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
-
+app.use('/api/listing', listingRouter);
 //error respons 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;

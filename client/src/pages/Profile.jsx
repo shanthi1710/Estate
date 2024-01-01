@@ -57,7 +57,7 @@ export default function Profile() {
    const handleClick = (e) => {
     setFromData({ ...fromData, [e.target.id]: e.target.value });
 };
-
+//sumit
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -80,6 +80,7 @@ const handleSubmit = async (e) => {
         dispatch(upadateUserFailure(error.message));
     }
 };
+//DeleteUser
 const handleDeleteUser = async () => {
   try {
     dispatch(deleteUserStart());
@@ -96,6 +97,7 @@ const handleDeleteUser = async () => {
     dispatch(deleteUserFailure(error.message));
   }
 };
+//SignOut
 const handleSignOut = async ()=>{
   try {
     dispatch(signOutUserStart())
