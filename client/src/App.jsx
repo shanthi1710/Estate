@@ -4,6 +4,7 @@ import About from './pages/About';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Profile  from './pages/Profile';
+import CeateListing  from './pages/CeateListing';
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -18,7 +19,8 @@ export default function App() {
       <Route path="/sign-in" element={<Signin/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
       <Route  element={<PrivateRoute/>}> 
-        <Route path="/profile" element={<Profile/>}/> 
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/create-listing" element={<CeateListing/>}/> 
       </Route>
     </Routes>
   </BrowserRouter>

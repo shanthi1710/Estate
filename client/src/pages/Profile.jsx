@@ -12,6 +12,7 @@ import {
   signOutUserStart,
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom';
 export default function Profile() {
   const fileRef =useRef(null);
   const {currentUser,loading,error}=useSelector(state=>state.user)
@@ -140,9 +141,12 @@ const handleSignOut = async ()=>{
           id='email' className='border p-3 rounded-lg '/>
         <input type='password' placeholder='password' onChange={handleClick}
           id='password' className='border p-3 rounded-lg '/>
-          <button disabled={loading}className='rounded-lg bg-slate-600 p-3 text-white uppercase hover:opacity-95 disabled:opacity-80'>
+          <button disabled={loading} className='rounded-lg bg-slate-600 p-3 text-white uppercase hover:opacity-95 disabled:opacity-80'>
             {loading ? 'loading...' : 'Update'}
           </button>
+          <Link className='rounded-lg bg-green-600 p-3 text-white uppercase text-center hover:opacity-95 disabled:opacity-80' to={"/create-listing"}>
+            Create Listing
+          </Link>
 
       </form>
       <div className='flex justify-between mt-5'>
