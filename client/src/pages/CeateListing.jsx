@@ -7,7 +7,6 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 
-
 export default function CeateListing() {
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({
