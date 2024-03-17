@@ -142,8 +142,8 @@ export default function CreateListing() {
           userRef: currentUser._id,
         }),
       });
+
       const data = await res.json();
-      console.log(data);
       setLoading(false);
       if (data.success === false) {
         setError(data.message);
