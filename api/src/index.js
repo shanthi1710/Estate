@@ -2,6 +2,7 @@ import express from "express";
 import connectDB from "./db/index.js"
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
+import path from 'path';
 
 const app =express();
 app.use(express.json());
@@ -25,9 +26,13 @@ connectDB()
     console.log("MONGO DB connection failed !!",err);
 })
 
+const __dirname = path.resolve();
+
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 app.use('/api/listing', listingRouter);
+
+app.use(express.static(path.join(__dirname, '/client/build')));
 //error respons 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
