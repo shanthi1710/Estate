@@ -2,7 +2,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
-import Signup from './pages/Signup';
+import SignUp from './pages/SignUp';
 import Profile  from './pages/Profile';
 import CeateListing  from './pages/CeateListing';
 import Header from "./components/Header";
@@ -20,7 +20,7 @@ export default function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
-      <Route path="/sign-up" element={<Signup/>}/>
+      <Route path="/sign-up" element={<SignUp/>}/>
       <Route  path="/search" element = {<Search/>}/>
       <Route path="/listing/:listingId" element={<Listing/>}/>
       <Route  element={<PrivateRoute/>}> 
