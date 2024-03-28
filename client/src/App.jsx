@@ -1,7 +1,7 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
-import Signin from './pages/Signin';
+import SignIn from './pages/SignIn';
 import Signup from './pages/Signup';
 import Profile  from './pages/Profile';
 import CeateListing  from './pages/CeateListing';
@@ -19,7 +19,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
-      <Route path="/sign-in" element={<Signin/>}/>
+      <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
       <Route  path="/search" element = {<Search/>}/>
       <Route path="/listing/:listingId" element={<Listing/>}/>
