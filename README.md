@@ -1,6 +1,6 @@
 # Setting Up the MERN Booking App
 
-This guide will walk you through the process of setting up the MERN Booking App on your local machine.
+This guide will walk you through the process of setting up the MERN Real Estate on your local machine.
 
 ## Prerequisites
 
