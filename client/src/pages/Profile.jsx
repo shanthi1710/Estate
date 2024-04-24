@@ -18,6 +18,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 export default function Profile() {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -26,7 +27,7 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [fromData, setFromData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
-
+  const [showPassword, setShowPassword] = useState(false);
   const [showListingsError, setShowListingsError] = useState(false);
   const [userListings, setUserListings] = useState([]);
 
@@ -157,6 +158,9 @@ export default function Profile() {
       console.log(error.message);
     }
   };
+  const handleClickEye = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center py-7">Profile</h1>
@@ -193,7 +197,7 @@ export default function Profile() {
           onChange={handleClick}
           defaultValue={currentUser.username}
           id="username"
-          className="border p-3 rounded-lg "
+          className="border p-3 rounded-lg w-[68vh]"
         />
         <input
           type="text"
@@ -201,23 +205,31 @@ export default function Profile() {
           onChange={handleClick}
           defaultValue={currentUser.email}
           id="email"
-          className="border p-3 rounded-lg "
+          className="border p-3 rounded-lg w-[68vh] "
         />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={handleClick}
-          id="password"
-          className="border p-3 rounded-lg "
-        />
+        <div className="flex items-center justify-between ">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="password"
+            className="border p-3 rounded-lg w-[70vh]"
+            id="password"
+            onChange={handleClick}
+          />
+          <p
+            onClick={handleClickEye}
+            className="ml-[-4vh] text-xl cursor-pointer hover:text-[red] duration-300"
+          >
+            {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+          </p>
+        </div>
         <button
           disabled={loading}
-          className="rounded-lg bg-slate-600 p-3 text-white uppercase hover:opacity-95 disabled:opacity-80"
+          className="rounded-lg bg-slate-600 p-3 text-white uppercase hover:opacity-95 disabled:opacity-80 w-[68vh]"
         >
           {loading ? "loading..." : "Update"}
         </button>
         <Link
-          className="rounded-lg bg-green-600 p-3 text-white uppercase text-center hover:opacity-95 disabled:opacity-80"
+          className="rounded-lg bg-green-600 p-3 text-white uppercase text-center hover:opacity-95 disabled:opacity-80 w-[68vh]"
           to={"/create-listing"}
         >
           Create Listing
