@@ -52,13 +52,15 @@ export default function SignIn() {
     <div className="p-3  max-w-lg mx-auto">
       <h1 className="text-3xl text-center font-semibold my-7">Sign In</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          placeholder="email"
-          className="border p-3 rounded-lg w-[68vh]"
-          id="email"
-          onChange={handleChange}
-        />
+        <div className="flex items-center justify-between ">
+          <input
+            type="email"
+            placeholder="email"
+            className="border p-3 rounded-lg w-[68vh]"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
         <div className="flex items-center justify-between ">
           <input
             type={showPassword ? "text" : "password"}
@@ -74,14 +76,17 @@ export default function SignIn() {
             {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
           </p>
         </div>
-
-        <button
-          disabled={loading}
-          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 w-[68vh]"
-        >
-          {loading ? "Loading..." : "Sign In"}
-        </button>
-        <OAuth />
+        <div className="flex items-center justify-between ">
+          <button
+            disabled={loading}
+            className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 w-[68vh]"
+          >
+            {loading ? "Loading..." : "Sign In"}
+          </button>
+        </div>
+        <div className="flex items-center justify-between ">
+          <OAuth />
+        </div>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Dont have an account?</p>
